@@ -15,7 +15,7 @@ app.use('/api/auth', authRoutes)
 
 app.get('/',(req,res)=>{
   try {
-    res.status(200).send("hello from port")
+    res.status(200).send("Hello from port .To check my Product API <h1>https://e-commerce-backend-clfo.onrender.com/api/products</h1> ")
   } catch (res) {
     
   }
