@@ -2,6 +2,10 @@ const express = require('express')
 const cors = require('cors')
 const authRoutes = require("./Routes/AuthRoutes")
 const bodyParser = require('body-parser') 
+const dotenv = require('dotenv');
+const path = require('path');
+
+dotenv.config();
 
 
 const app = express()
@@ -12,14 +16,17 @@ app.use(express.json())
 app.use(cors())
 
 app.use('/api/auth', authRoutes)
+app.use(express.static(path.join(__dirname, '..', 'public')));
 
 app.get('/',(req,res)=>{
   try {
-    res.status(200).send("Hello from port .To check my Product API <h1>https://e-commerce-backend-clfo.onrender.com/api/products</h1> ")
+    res.sendFile(path.join(__dirname, '..', 'public', 'index.html'))
   } catch (res) {
     
   }
 })
+
+
 
 const authRouters = require('./Routes/AuthRoutes')
 app.use('/auth',authRouters)
