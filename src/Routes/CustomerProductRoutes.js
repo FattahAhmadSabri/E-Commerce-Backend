@@ -5,7 +5,7 @@ const {authenticate }= require('../MiddleWare/Authenticate')
 const ProductController = require('../Controller/ProductController')
 
 router.get('/id/:id',authenticate,ProductController.findProductById)
-router.get('/',authenticate,ProductController.getallProduct)
+router.get('/',ProductController.getallProduct)
 
 
 module.exports= router
