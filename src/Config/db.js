@@ -6,11 +6,13 @@ const mongoDBUrl = process.env.MONGODB_URL;
 
 
 
-
-
 const connectDB = async () => {
+
     try {
         await mongoose.connect(mongoDBUrl, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            serverSelectionTimeoutMS: 20000
         });
         
         console.log("DB is connected");
